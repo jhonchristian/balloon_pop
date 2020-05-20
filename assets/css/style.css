@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+:root {
+    --primary   : #f393fd;
+    --p_light   : #f8b8ff;
+    --p_dark    : #be20cf;
+    --bg_light  : #f8f8f8;
+    --bg        : #ebe2e2;
+    --bg_dark   : #424242;
+    --bg_dark_l : #757373;
+    --text_light: #ffffff;
+    --text_dark : #5c5c5c;    
+    --box_shadow: 0px 2px 6px rgba(0,0,0,.3);
+    --font_size : 14pt;
+    --corner    : 5px;
+    --default   : 8px;
+}
+
+body,
+input {
+    background-color: var(--bg);
+    font-family     : 'Permanent Marker', cursive;
+    font-size       : var(--font_size);
+    color           : var(--text_dark);
+}
+
+header {
+    margin: 1em 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+input {
+    border          : none;
+    border-bottom   : 1px solid var(--bg_dark);
+    outline         : transparent;
+    background-color: transparent;
+    font-family     : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    padding         : 1em;
+    border          : 1px solid var(--p_dark);
+    border-radius   : var(--corner);
+    text-transform  : uppercase;
+    color           : var(--bg_light);
+    box-shadow      : var(--box_shadow);
+    background-color: var(--primary);
+    transition      : all .2s ease;
+}
+
+button:hover {
+    cursor          : pointer;
+    background-color: var(--p_light);
+    color           : var(--p_dark);
+}
+
+.pump-balloon {
+    height: 300px;
+}
+
+.pump {
+    position  : relative;
+    height    : 120px;
+    width     : 180px;
+    margin-top: 80px;
+    align-self: flex-end;
+}
+
+.pump-handle {    
+    cursor          : pointer;
+    display         : flex;
+    justify-content : center;
+    position        : absolute;
+    top             : -80px;
+    left            : 35px;
+    height          : 10px;
+    width           : 80px;
+    background-color: var(--bg_dark_l);
+    transition      : all .1s linear;
+}
+
+.pump-handle::before {
+    display         : block;
+    content         : "";
+    width           : 10px;
+    height          : 80px;
+    background-color: var(--bg_dark_l);
+}
+
+.pump:active .pump-handle {
+    top: -20px;
+}
+
+.pump-box {
+    position               : relative;
+    z-index                : 1;
+    display                : flex;
+    align-items            : center;
+    justify-content        : center;
+    height                 : 120px;
+    width                  : 150px;
+    border-top-right-radius: 20px;
+    border-top-left-radius : 20px;
+    background-color       : var(--primary);
+    user-select            : none;
+}
+
+.pump-box span {
+    padding      : .5em 1em;
+    border-radius: var(--corner);
+    border       : 2px solid var(--p_dark);
+    color        : var(--p_dark);
+}
+
+.balloon {
+    height       : 140px;
+    width        : 100px;
+    margin       : 0 auto;
+    border-radius: 50%;
+    transition   : all .3s ease;
+    align-self   : flex-end;
+    background   : linear-gradient(-49deg, #430101 0%, #ff0000 60%, #fa1e01 80%, #ffffff 100%);
+    box-shadow   : inset -10px -10px 10px rgba(0, 0, 0, .3);
+    animation    : balloon-float 5s ease-in-out infinite;
+}
+
+.balloon.green {
+    filter: hue-rotate(150deg);
+}
+
+.balloon.blue {
+    filter: hue-rotate(220deg);
+}
+
+.balloon.purple {
+    filter: hue-rotate(310deg);
+}
+
+.balloon.pink {
+    filter: hue-rotate(325deg);
+}
+
+@keyframes balloon-float {
+    0%, 100% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+}
+
+/** --------------------------------------------- **/
+/*                 UTILITY CLASSES                 */
+/** --------------------------------------------- **/
+
+.container {
+    width : 50%;
+    margin: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        width: 90%;
+    }
+}
+
+.card {
+    padding         : 1em;
+    border-radius   : var(--corner);
+    background-color: var(--bg_light);
+    box-shadow      : var(--box_shadow);
+}
+
+.image-shadow {
+    filter: drop-shadow(var(--box_shadow));
+}
+
+.btn-dark {
+    background-color: var(--bg_dark_l);
+    border-color    : var(--bg_dark);
+}
+
+.btn-dark:hover {
+    background-color: var(--bg_dark);
+    border-color    : var(--bg_dark_l);
+    color           : var(--text_light);
+}
+
+.bg-dark {
+    background-color: var(--bg_dark);
+}
+
+.text-light {
+    color: var(--text_light);
+}
+
+.d-flex {
+    display    : flex;
+    align-items: center;
+}
+
+.d-flex.space-between {
+    justify-content: space-between;
+}
+
+.d-flex.space-around {
+    justify-content: space-around;
+}
+
+.mt-1 {
+    margin-top: .5em;
+}
+
+.mt-2 {
+    margin-top: 1em;
+}
+
+.mt-3 {
+    margin-top: 1.5em;
+}
+
+.mb-1 {
+    margin-bottom: .5em;
+}
+
+.mb-2 {
+    margin-bottom: 1em;
+}
+
+.mb-3 {
+    margin-bottom: 1.5em;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
